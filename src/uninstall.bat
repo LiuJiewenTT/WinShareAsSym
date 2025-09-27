@@ -10,10 +10,7 @@
 echo 正在移除右键菜单... 
 
 :: 删除一级菜单 
-reg delete "HKCR\Directory\Background\shell\WinShareAsSym" /f
-
-:: 删除子菜单组 
-reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\WinShareAsSymGroup" /f
+reg delete "HKCR\Directory\shell\WinShareAsSym" /f
 
 echo 移除完成！ 
 pause
