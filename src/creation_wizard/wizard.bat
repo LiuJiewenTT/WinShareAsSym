@@ -29,11 +29,13 @@ if "%LANG%" == "" (
 )
 
 if not exist "%~dp0i18n\%LANG%\wizard.bat" (
-    echo [LOG]: Language %LANG% not supported. Use default language.
+    echo [INFO]: Language %LANG% not supported. Use default language.
     goto :use_default_lang
 )
 
 call "%~dp0i18n\%LANG%\wizard.bat" %*
+echo [INFO]: RESULT STATUS: %ERRORLEVEL%
+exit /B %ERRORLEVEL%
 
 endlocal
 @ goto:eof
@@ -41,7 +43,7 @@ endlocal
 @REM # func_ensureACP
 :func_ensureACP
     @if /I %codepage% NEQ 65001 ( 
-        echo [LOG]: Active code page is not 65001^(UTF-8^). [%codepage%]
+        echo [INFO]: Active code page is not 65001^(UTF-8^). [%codepage%]
         chcp 65001
     )
 @ goto:eof
