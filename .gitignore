@@ -1,3 +1,4 @@
 .vscode/
 keep_local
+build/
 temp
