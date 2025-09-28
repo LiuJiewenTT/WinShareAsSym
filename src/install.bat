@@ -18,7 +18,7 @@ echo ------
 echo 正在注册目录右键菜单...
 
 :: 主菜单 
-reg add "HKCR\Directory\shell\WinShareAsSym" /v "MUIVerb" /d "创建链接" /f
+reg add "HKCR\Directory\shell\WinShareAsSym" /v "MUIVerb" /d "用 WinShareAsSym 创建链接" /f
 reg add "HKCR\Directory\shell\WinShareAsSym" /v "SubCommands" /f
 reg add "HKCR\Directory\shell\WinShareAsSym" /v "Icon" /d "%SystemRoot%\System32\imageres.dll,-5302" /f
 
@@ -28,33 +28,38 @@ set "GROUPBASE=HKCR\Directory\shell\WinShareAsSym\Shell"
 :: 子菜单 - 文件符号链接 
 reg add "%GROUPBASE%\SymFile" /v "MUIVerb" /d "文件符号链接" /f
 reg add "%GROUPBASE%\SymFile" /v "ShowDisabledIfHidden" /t REG_SZ /f
+reg add "%GROUPBASE%\SymFile" /v "Icon" /d "%SystemRoot%\System32\imageres.dll,-5302" /f
 reg add "%GROUPBASE%\SymFile\command" /ve /d "\"%CURDIR%\creation_wizard\wizard.bat\" \"%%V\" 1" /f
 
 :: 子菜单 - 目录符号链接 
 reg add "%GROUPBASE%\SymDir" /v "MUIVerb" /d "目录符号链接" /f
 reg add "%GROUPBASE%\SymDir" /v "ShowDisabledIfHidden" /t REG_SZ /f
+reg add "%GROUPBASE%\SymDir" /v "Icon" /d "%SystemRoot%\System32\imageres.dll,-5302" /f
 reg add "%GROUPBASE%\SymDir\command" /ve /d "\"%CURDIR%\creation_wizard\wizard.bat\" \"%%V\" 2" /f
 
 :: 子菜单 - 文件硬链接 
 reg add "%GROUPBASE%\HardLink" /v "MUIVerb" /d "文件硬链接" /f
 reg add "%GROUPBASE%\HardLink" /v "ShowDisabledIfHidden" /t REG_SZ /f
+reg add "%GROUPBASE%\HardLink" /v "Icon" /d "%SystemRoot%\System32\imageres.dll,-5302" /f
 reg add "%GROUPBASE%\HardLink\command" /ve /d "\"%CURDIR%\creation_wizard\wizard.bat\" \"%%V\" 3" /f
 
 :: 子菜单 - 目录联接(Junction) 
 reg add "%GROUPBASE%\Junction" /v "MUIVerb" /d "目录软联接" /f
 reg add "%GROUPBASE%\Junction" /v "ShowDisabledIfHidden" /t REG_SZ /f
+reg add "%GROUPBASE%\Junction" /v "Icon" /d "%SystemRoot%\System32\imageres.dll,-5302" /f
 reg add "%GROUPBASE%\Junction\command" /ve /d "\"%CURDIR%\creation_wizard\wizard.bat\" \"%%V\" 4" /f
 
 :: 子菜单 - 向导 
 reg add "%GROUPBASE%\Wizard" /v "MUIVerb" /d "启动生成向导" /f
 reg add "%GROUPBASE%\Wizard" /v "ShowDisabledIfHidden" /t REG_SZ /f
+reg add "%GROUPBASE%\Wizard" /v "Icon" /d "%SystemRoot%\System32\imageres.dll,-5302" /f
 reg add "%GROUPBASE%\Wizard\command" /ve /d "\"%CURDIR%\creation_wizard\wizard.bat\" \"%%V\" " /f
 
 echo ------
 echo 正在注册目录背景右键菜单...
 
 :: 主菜单 
-reg add "HKCR\Directory\Background\shell\WinShareAsSym" /v "MUIVerb" /d "创建链接" /f
+reg add "HKCR\Directory\Background\shell\WinShareAsSym" /v "MUIVerb" /d "用 WinShareAsSym 创建链接" /f
 reg add "HKCR\Directory\Background\shell\WinShareAsSym" /v "SubCommands" /f
 reg add "HKCR\Directory\Background\shell\WinShareAsSym" /v "Icon" /d "%SystemRoot%\System32\imageres.dll,-5302" /f
 
@@ -64,26 +69,31 @@ set "GROUPBASE=HKCR\Directory\Background\shell\WinShareAsSym\Shell"
 :: 子菜单 - 文件符号链接 
 reg add "%GROUPBASE%\SymFile" /v "MUIVerb" /d "文件符号链接" /f
 reg add "%GROUPBASE%\SymFile" /v "ShowDisabledIfHidden" /t REG_SZ /f
+reg add "%GROUPBASE%\SymFile" /v "Icon" /d "%SystemRoot%\System32\imageres.dll,-5302" /f
 reg add "%GROUPBASE%\SymFile\command" /ve /d "\"%CURDIR%\creation_wizard\wizard.bat\" \"%%V\" 1" /f
 
 :: 子菜单 - 目录符号链接 
 reg add "%GROUPBASE%\SymDir" /v "MUIVerb" /d "目录符号链接" /f
 reg add "%GROUPBASE%\SymDir" /v "ShowDisabledIfHidden" /t REG_SZ /f
+reg add "%GROUPBASE%\SymDir" /v "Icon" /d "%SystemRoot%\System32\imageres.dll,-5302" /f
 reg add "%GROUPBASE%\SymDir\command" /ve /d "\"%CURDIR%\creation_wizard\wizard.bat\" \"%%V\" 2" /f
 
 :: 子菜单 - 文件硬链接 
 reg add "%GROUPBASE%\HardLink" /v "MUIVerb" /d "文件硬链接" /f
 reg add "%GROUPBASE%\HardLink" /v "ShowDisabledIfHidden" /t REG_SZ /f
+reg add "%GROUPBASE%\HardLink" /v "Icon" /d "%SystemRoot%\System32\imageres.dll,-5302" /f
 reg add "%GROUPBASE%\HardLink\command" /ve /d "\"%CURDIR%\creation_wizard\wizard.bat\" \"%%V\" 3" /f
 
 :: 子菜单 - 目录联接(Junction) 
 reg add "%GROUPBASE%\Junction" /v "MUIVerb" /d "目录软联接" /f
 reg add "%GROUPBASE%\Junction" /v "ShowDisabledIfHidden" /t REG_SZ /f
+reg add "%GROUPBASE%\Junction" /v "Icon" /d "%SystemRoot%\System32\imageres.dll,-5302" /f
 reg add "%GROUPBASE%\Junction\command" /ve /d "\"%CURDIR%\creation_wizard\wizard.bat\" \"%%V\" 4" /f
 
 :: 子菜单 - 向导 
 reg add "%GROUPBASE%\Wizard" /v "MUIVerb" /d "启动生成向导" /f
 reg add "%GROUPBASE%\Wizard" /v "ShowDisabledIfHidden" /t REG_SZ /f
+reg add "%GROUPBASE%\Wizard" /v "Icon" /d "%SystemRoot%\System32\imageres.dll,-5302" /f
 reg add "%GROUPBASE%\Wizard\command" /ve /d "\"%CURDIR%\creation_wizard\wizard.bat\" \"%%V\" " /f
 
 echo ------
