@@ -17,7 +17,7 @@ echo 正在注册右键菜单...
 
 :: 主菜单 
 reg add "HKCR\Directory\shell\WinShareAsSym" /v "MUIVerb" /d "创建链接" /f
-@REM reg add "HKCR\Directory\shell\WinShareAsSym" /v "SubCommands" /d "WinShareAsSymGroup" /f
+reg add "HKCR\Directory\shell\WinShareAsSym" /v "SubCommands" /f
 reg add "HKCR\Directory\shell\WinShareAsSym" /v "Icon" /d "%SystemRoot%\System32\imageres.dll,-5302" /f
 
 :: 定义子菜单组 

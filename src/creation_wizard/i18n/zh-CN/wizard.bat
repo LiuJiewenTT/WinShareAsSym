@@ -23,13 +23,13 @@ if "%pre_selection%" EQU "" (
 )
 
 if ERRORLEVEL 4 (
-    copy /Y "%~dp0..\create_dir_sym_j.bat" "%target_dir%"
+    copy /Y "%~dp0..\..\..\create_dir_sym_j.bat" "%target_dir%\create_dir_sym_j.bat"
 ) else if ERRORLEVEL 3 (
-    copy /Y "%~dp0..\create_file_sym_h.bat" "%target_dir%"
+    copy /Y "%~dp0..\..\..\create_file_sym_h.bat" "%target_dir%\create_file_sym_h.bat"
 ) else if ERRORLEVEL 2 (
-    copy /Y "%~dp0..\create_dir_sym.bat" "%target_dir%"
+    copy /Y "%~dp0..\..\..\create_dir_sym.bat" "%target_dir%\create_dir_sym.bat"
 ) else if ERRORLEVEL 1 (
-    copy /Y "%~dp0..\create_file_sym.bat" "%target_dir%"
+    copy /Y "%~dp0..\..\..\create_file_sym.bat" "%target_dir%\create_file_sym.bat"
 ) 
 
 
