@@ -7,6 +7,14 @@ setlocal
 REM 已设定代码页，如遇乱码请检查文件编码或终端字体，通常可以得到解决。 
 REM 若仍有乱码，请检查文件是否是UTF-8编码，且换行符是CRLF模式。 
 
+@for /f "usebackq delims=" %%a in ("%~dp0..\product_version.txt") do @set product_version=%%a
+@if "%product_version%" EQU "" @(
+    set product_version=v0.0.0
+)
+@if "%product_version:~0,1%" EQU "v" @(
+    set product_version=%product_version:~1%
+)
+
 echo WinShareAsSym 脚本创建向导 
 @echo.
 @echo Project Link: https://github.com/LiuJiewenTT/WinShareAsSym
@@ -15,7 +23,7 @@ echo WinShareAsSym 脚本创建向导
 @echo.
 @echo Email: ^<liuljwtt@163.com^>
 @echo.
-@echo Product Version: 1.1
+@echo Product Version: %product_version%
 @echo.
 @echo Version: 1.0
 @echo.
