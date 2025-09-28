@@ -20,12 +20,13 @@ if not exist "%project_root%src\product_version.txt" (
     set product_version=v0.0.0
     echo [WARN]: product_version.txt not found, using default version: %product_version%
 ) else (
-    for /f "delims=" %%i in ("%project_root%src\product_version.txt") do set product_version=%%i
+    for /f "usebackq delims=" %%i in ("%project_root%src\product_version.txt") do set product_version=%%i
 )
 
 echo [INFO]: Project root directory: %project_root%
 echo [INFO]: Project name: %project_name%
 echo [INFO]: Product version: %product_version%
+
 echo ------
 
 where 7z >nul 2>&1
@@ -45,8 +46,24 @@ call :ensure_dir_exist "%product_build_cache_dir%" && if ERRORLEVEL 1 exit /b 1
 
 echo [INFO]: All directories exist, ready.
 
+choice /M "Want to rectify product version?"
+
+if ERRORLEVEL 2 (
+    echo [INFO]: Skipping product version rectification.
+) else (
+    set /p product_version="Please input product version: "
+)
+
+choice /M "Confirm?"
+
+if ERRORLEVEL 2 (
+    echo [INFO]: Abort.
+    exit /b 0
+)
+
 @REM Prepare directory exclude list
 if not exist "%build_config_dir%src_exclude_dir_list.txt" (
+    @REM use default list
     set src_exclude_dir_list_content=^
 temp
     echo %src_exclude_dir_list_content%>"%build_config_dir%src_exclude_dir_list.txt"
@@ -56,6 +73,7 @@ temp
 
 @REM Prepare file exclude list
 if not exist "%build_config_dir%src_exclude_file_list.txt" (
+    @REM use default list
     set src_exclude_file_list_content=^
 temp
     echo %src_exclude_file_list_content%>"%build_config_dir%src_exclude_file_list.txt"
@@ -64,6 +82,16 @@ temp
 )
 
 robocopy /S "%project_root%src" "%product_build_cache_dir:~0,-1%" * /XD %src_exclude_file_list_content% /XF %src_exclude_dir_list_content% 
+
+xcopy /Y "%project_root%LICENSE" "%product_build_cache_dir%"
+xcopy /Y "%project_root%README.md" "%product_build_cache_dir%"
+
+if exist "%build_dest_dir%%project_name%-%product_version%.zip" (
+    echo [WARN]: %build_dest_dir%%project_name%-%product_version%.zip already exists, removing it.
+    del "%build_dest_dir%%project_name%-%product_version%.zip"
+)
+
+7z a -tzip "%build_dest_dir%%project_name%-%product_version%.zip" "%product_build_cache_dir%"
 
 endlocal
 goto :eof
