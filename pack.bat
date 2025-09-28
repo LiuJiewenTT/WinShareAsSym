@@ -45,14 +45,25 @@ call :ensure_dir_exist "%product_build_cache_dir%" && if ERRORLEVEL 1 exit /b 1
 
 echo [INFO]: All directories exist, ready.
 
-if not exist "%build_config_dir%src_exclude_list.txt" (
-    set src_exclude_list_content=^
-temp\
-    echo %src_exclude_list_content%>"%build_config_dir%src_exclude_list.txt"
+@REM Prepare directory exclude list
+if not exist "%build_config_dir%src_exclude_dir_list.txt" (
+    set src_exclude_dir_list_content=^
+temp
+    echo %src_exclude_dir_list_content%>"%build_config_dir%src_exclude_dir_list.txt"
+) else (
+    for /f "usebackq delims=" %%i in ("%build_config_dir%src_exclude_dir_list.txt") do set src_exclude_dir_list_content=%src_exclude_dir_list_content% "%%i"
 )
 
-xcopy /Y /S /EXCLUDE:"%build_config_dir%src_exclude_list.txt" "%project_root%src\*" "%product_build_cache_dir%"
+@REM Prepare file exclude list
+if not exist "%build_config_dir%src_exclude_file_list.txt" (
+    set src_exclude_file_list_content=^
+temp
+    echo %src_exclude_file_list_content%>"%build_config_dir%src_exclude_file_list.txt"
+) else (
+    for /f "usebackq delims=" %%i in ("%build_config_dir%src_exclude_file_list.txt") do set src_exclude_file_list_content=%src_exclude_file_list_content% "%%i"
+)
 
+robocopy /S "%project_root%src" "%product_build_cache_dir:~0,-1%" * /XD %src_exclude_file_list_content% /XF %src_exclude_dir_list_content% 
 
 endlocal
 goto :eof
