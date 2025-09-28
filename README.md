@@ -1,6 +1,16 @@
 # WinShareAsSym
 
-This is a tool to create symbolic links to shared folders/files on Windows.
+This is a toolkit to create symbolic links to shared folders/files on Windows.
+
+## Setup
+
+It's still portable, the installation add the registries and the uninstallation removes the registries. **You don't have to do the installation step if you don't care about context menu entries.**
+
+This toolkit contains `install.bat` and `uninstall.bat` to install and uninstall the toolkit on your system. 
+
+Run `install.bat` as an administrator to install the toolkit, and `uninstall.bat` to uninstall it.
+
+Currently, some new scripts are not fully multi-language capable. Hence, some might not work without `set LANG=zh-CN`.
 
 ## Usage
 
