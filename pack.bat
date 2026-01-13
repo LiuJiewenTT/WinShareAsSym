@@ -8,12 +8,14 @@ setlocal
     chcp 65001
 )
 
+echo This is an onward packing script and not for decrements or clean builds.
+
 set project_root=%~dp0
 set project_name=WinShareAsSym
 set build_dir=%project_root%build\
 set build_config_dir=%build_dir%config\
-set build_cache_dir=%build_dir%\build\
-set build_dest_dir=%build_dir%\dist\
+set build_cache_dir=%build_dir%build\
+set build_dest_dir=%build_dir%dist\
 set product_build_cache_dir=%build_cache_dir%%project_name%\
 
 if not exist "%project_root%src\product_version.txt" (
