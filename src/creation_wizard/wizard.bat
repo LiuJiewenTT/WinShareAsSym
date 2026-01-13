@@ -25,7 +25,7 @@ echo WinShareAsSym 脚本创建向导
 @echo.
 @echo Product Version: %product_version%
 @echo.
-@echo Version: 1.0
+@echo Version: 1.1
 @echo.
 @echo License: MIT License ^(Copyright ^(c^) 2025 LiuJiewenTT^)
 @echo.
