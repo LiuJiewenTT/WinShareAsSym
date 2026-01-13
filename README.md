@@ -4,7 +4,13 @@
 
 This is a toolkit to create symbolic links to shared folders/files on Windows. By doing so, you can have a copy of the data everywhere available, without taking up more storage space.
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" >
+<link rel="stylesheet" href="docs/res/css/main.css" >
+
 <script src="readme.js" ></script>
+<div class="go-to-top" style="display: none;">
+    <i class="fas fa-arrow-up"></i>
+</div>
 <div class="quick-navigate"></div>
 
 ## 安装
@@ -27,3 +33,64 @@ This is a toolkit to create symbolic links to shared folders/files on Windows. B
 > 将优先更新中文版文档。
 
 
+s
+
+s
+
+s
+
+s
+
+s
+
+ss
+
+s
+
+s
+
+ss
+
+s
+
+s
+
+s
+
+s
+
+ss
+
+
+s
+
+s
+
+s
+
+s
+
+s
+
+s
+
+s
+
+s
+
+s
+
+s
+s
+s
+
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s

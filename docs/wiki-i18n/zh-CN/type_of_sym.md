@@ -4,6 +4,15 @@
 
 通过阅读本页内容，你将对应该使用何种类型来满足你的需求有一个更明确的想法。
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" >
+<link rel="stylesheet" href="../../res/css/main.css" >
+
+<script src="../shared/readme.js" ></script>
+<div class="go-to-top" style="display: none;">
+    <i class="fas fa-arrow-up"></i>
+</div>
+<div class="quick-navigate"></div>
+
 ---
 
 在开始前，我必须简单地告诉你一件事：
