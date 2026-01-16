@@ -43,6 +43,7 @@ if not exist "%~dp0i18n\%LANG%\wizard.bat" (
 
 call "%~dp0i18n\%LANG%\wizard.bat" %*
 echo [INFO]: RESULT STATUS: %ERRORLEVEL%
+pause
 exit /B %ERRORLEVEL%
 
 endlocal

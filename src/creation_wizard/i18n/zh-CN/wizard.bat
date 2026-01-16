@@ -1,3 +1,10 @@
+@REM l10n info should be more compact.
+@echo This zh-CN module info:
+@echo Author: LiuJiewenTT
+@echo Email: ^<liuljwtt@163.com^>
+@echo Product Version: %product_version%
+@echo Version: 1.2
+
 if "%~1" EQU "" (
     set /p target_dir="请输入目标目录的路径："  
 ) else (
