@@ -28,7 +28,7 @@ set source_filename=%~nx1
 call :get_root_path "%source_file%"
 mklink "%~dp0%source_filename%" "%retv%"
 shift /1
-if not "%~1"=="" goto loop else goto:eof
+if "%~1" NEQ "" (goto loop) else (goto:eof)
 
 :get_root_path
     set retv=%~pnx1

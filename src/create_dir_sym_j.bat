@@ -26,4 +26,4 @@ set source_file=%~1
 set source_filename=%~nx1
 mklink /J "%~dp0%source_filename%" "%source_file%"
 shift /1
-if not "%~1"=="" goto loop
+if "%~1" NEQ "" (goto loop) else (goto:eof)

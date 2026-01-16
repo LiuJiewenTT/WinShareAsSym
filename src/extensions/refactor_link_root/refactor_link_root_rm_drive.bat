@@ -81,14 +81,15 @@ if ERRORLEVEL 1 (
 ) 
 mklink %mklink_option% "%source_file%" "%link_target_new%"
 if ERRORLEVEL 1 (
-    echo Failed to create new symbolic link. Restore and abort.
+    echo Failed to create new symbolic link. Restore.
     ren "%source_file%.wsas_temp" "%source_filename%"
     if ERRORLEVEL 1 (
         echo Failed to restore the original file name. Abort.
+        exit /b 1
     )
-    goto :eof
+    goto :main_continue
 )
 :main_continue
 shift /1
-if not "%~1"=="" goto loop else goto:eof
+if "%~1" NEQ "" (goto :loop) else (goto:eof)
 
