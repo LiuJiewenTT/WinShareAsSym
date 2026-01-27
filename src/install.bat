@@ -8,6 +8,20 @@ setlocal
     chcp 65001
 )
 
+@echo Installer of WinShareAsSym
+@echo.
+@echo Project Link: https://github.com/LiuJiewenTT/WinShareAsSym
+@echo.
+@echo Author: LiuJiewenTT
+@echo.
+@echo Email: ^<liuljwtt@163.com^>
+@echo.
+@echo Version: 1.0.1
+@echo.
+@echo License: LGPLv3 License ^(Copyright ^(c^) 2026 LiuJiewenTT^)
+@echo.
+@echo ---
+
 :: 获取当前脚本所在目录 
 set "CURDIR=%~dp0"
 :: 去掉末尾的反斜杠 

@@ -7,6 +7,20 @@
     chcp 65001
 )
 
+@echo Uninstaller of WinShareAsSym
+@echo.
+@echo Project Link: https://github.com/LiuJiewenTT/WinShareAsSym
+@echo.
+@echo Author: LiuJiewenTT
+@echo.
+@echo Email: ^<liuljwtt@163.com^>
+@echo.
+@echo Version: 1.0.1
+@echo.
+@echo License: LGPLv3 License ^(Copyright ^(c^) 2026 LiuJiewenTT^)
+@echo.
+@echo ---
+
 echo 正在移除右键菜单... 
 
 :: 删除一级菜单 
