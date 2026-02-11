@@ -22,14 +22,16 @@
 
 if "%~1"=="" goto:eof
 
+@setlocal enabledelayedexpansion
+
 set "kit_root=%~dp0..\..\"
 
 :loop
 set "source_file=%~1"
 set "source_filename=%~nx1"
 set "source_dirname=%~dp1"
-echo Source file: %source_file% 
-echo Target directory: %source_dirname%
+echo Source file: !source_file! 
+echo Target directory: !source_dirname!
 set link_type=
 set link_target_original= 
 if not exist "%source_file%" (
@@ -38,8 +40,8 @@ if not exist "%source_file%" (
 ) 
 for /f "usebackq delims=" %%i in (`call "%~dp0utils\read_link_type.bat" "%source_file%"`) do set "link_type=%%i"
 for /f "usebackq delims=" %%i in (`call "%~dp0utils\read_link_target.bat" "%source_file%"`) do set "link_target_original=%%i"
-echo Link type: %link_type%
-echo Link target ^(original^): %link_target_original%
+echo Link type: !link_type!
+echo Link target ^(original^): !link_target_original!
 set "prefix=%link_target_original:~0,2%"
 set "rest=%link_target_original:~2%"
 set "drive_original=%prefix:~0,1%"
@@ -48,7 +50,7 @@ if "%prefix:~1,2%" NEQ ":" (
     echo The link target does not start with a drive letter and colon.
     goto :main_continue
 )
-echo Drive letter ^(original^): %drive_original% 
+echo Drive letter ^(original^): !drive_original! 
 set "link_target_new=%rest%"
 if /I "%link_type%" EQU "SYMLINK" (
     echo Link is for a file.
@@ -71,7 +73,7 @@ if /I "%link_type%" EQU "SYMLINK" (
         )
     )
 ) else (
-    echo Unsupported link type: %link_type%. Skip.
+    echo Unsupported link type: !link_type!. Skip.
     goto :main_continue
 )
 ren "%source_file%" "%source_filename%.wsas_temp"
@@ -91,5 +93,9 @@ if ERRORLEVEL 1 (
 )
 :main_continue
 shift /1
-if "%~1" NEQ "" (goto :loop) else (goto:eof)
+if "%~1" NEQ "" (goto :loop) else (goto:end)
+
+:end
+@endlocal
+goto :eof
 

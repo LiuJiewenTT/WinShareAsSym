@@ -22,12 +22,14 @@
 
 if "%~1"=="" goto:eof
 
+@setlocal enabledelayedexpansion
+
 :loop
 set "source_file=%~1"
 set "source_filename=%~nx1"
 set "source_dirname=%~dp1"
-echo Source file: %source_file% 
-echo Target directory: %source_dirname%
+echo Source file: !source_file! 
+echo Target directory: !source_dirname!
 set link_type_current=
 set link_target_current= 
 set link_type_backup=
@@ -45,10 +47,10 @@ for /f "usebackq delims=" %%i in (`call "%~dp0utils\read_link_target.bat" "%sour
 for /f "usebackq delims=" %%i in (`call "%~dp0utils\read_link_type.bat" "%source_file%.wsas_temp"`) do set "link_type_backup=%%i"
 for /f "usebackq delims=" %%i in (`call "%~dp0utils\read_link_target.bat" "%source_file%.wsas_temp"`) do set "link_target_backup=%%i"
 
-echo Link type ^(current^): %link_type_current%
-echo Link target ^(current^): %link_target_current%
-echo Link type ^(backup^): %link_type_backup%
-echo Link type ^(backup^): %link_target_backup%
+echo Link type ^(current^): !link_type_current!
+echo Link target ^(current^): !link_target_current!
+echo Link type ^(backup^): !link_type_backup!
+echo Link type ^(backup^): !link_target_backup!
 if /I "%link_type_current%" EQU "SYMLINK" (
     call :rename_tasks "%source_file%"
     if ERRORLEVEL 2 (exit /b 2) else if ERRORLEVEL 1 (goto :main_continue)
@@ -66,19 +68,24 @@ if /I "%link_type_current%" EQU "SYMLINK" (
         goto :main_continue
     )
 ) else (
-    echo Unsupported link type: %link_type_current%. Skip.
+    echo Unsupported link type: !link_type_current!. Skip.
     goto :main_continue
 )
 echo Undo success.
 :main_continue
 shift /1
-if "%~1" NEQ "" (goto :loop) else (goto:eof)
+if "%~1" NEQ "" (goto :loop) else (goto:end)
+
+:end
+@endlocal
+goto :eof
 
 
 @REM @retv[0]: normal
 @REM @retv[1]: skip
 @REM @retv[2]: abort
 :rename_tasks
+setlocal
     set "source_file=%~1"
     set "source_filename=%~nx1"
     ren "%source_file%" "%source_filename%.wsas_temp2"
@@ -96,4 +103,5 @@ if "%~1" NEQ "" (goto :loop) else (goto:eof)
         )
         exit /b 1
     )
+endlocal
 goto:eof
