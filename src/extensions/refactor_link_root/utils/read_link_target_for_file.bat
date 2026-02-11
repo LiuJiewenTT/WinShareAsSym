@@ -3,7 +3,7 @@
 set retv=
 set line=
 @for /f "usebackq eol= delims=" %%i in (`dir /A:-DL "%~1" ^| findstr /L /C:" %~nx1 "`) do @(
-    set line=%%i
+    set "line=%%i"
 )
 if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] line=【!line!】 )
 
@@ -47,6 +47,7 @@ if /I "%retv%" NEQ "" (
     set "retv=!retv:~1!"
     echo !retv!
 )
+@REM if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] retv=【!retv!】 )
 if not defined retv (
     exit /b 1
 )

@@ -23,13 +23,13 @@
 if "%~1"=="" goto:eof
 
 :loop
-set source_file=%~1
-set source_filename=%~nx1
+set "source_file=%~1"
+set "source_filename=%~nx1"
 call :get_root_path "%source_file%"
 mklink "%~dp0%source_filename%" "%retv%"
 shift /1
 if "%~1" NEQ "" (goto loop) else (goto:eof)
 
 :get_root_path
-    set retv=%~pnx1
+    set "retv=%~pnx1"
 goto:eof

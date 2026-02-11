@@ -23,9 +23,9 @@
 if "%~1"=="" goto:eof
 
 :loop
-set source_file=%~1
-set source_filename=%~nx1
-set source_dirname=%~dp1
+set "source_file=%~1"
+set "source_filename=%~nx1"
+set "source_dirname=%~dp1"
 echo Source file: %source_file% 
 echo Target directory: %source_dirname%
 set link_type_current=
@@ -40,10 +40,10 @@ if not exist "%source_file%.wsas_temp" (
     echo Original backup file does not exist now. Skip.
     goto :main_continue
 ) 
-for /f "usebackq delims=" %%i in (`call "%~dp0utils\read_link_type.bat" "%source_file%"`) do set link_type_current=%%i
-for /f "usebackq delims=" %%i in (`call "%~dp0utils\read_link_target.bat" "%source_file%"`) do set link_target_current=%%i
-for /f "usebackq delims=" %%i in (`call "%~dp0utils\read_link_type.bat" "%source_file%.wsas_temp"`) do set link_type_backup=%%i
-for /f "usebackq delims=" %%i in (`call "%~dp0utils\read_link_target.bat" "%source_file%.wsas_temp"`) do set link_target_backup=%%i
+for /f "usebackq delims=" %%i in (`call "%~dp0utils\read_link_type.bat" "%source_file%"`) do set "link_type_current=%%i"
+for /f "usebackq delims=" %%i in (`call "%~dp0utils\read_link_target.bat" "%source_file%"`) do set "link_target_current=%%i"
+for /f "usebackq delims=" %%i in (`call "%~dp0utils\read_link_type.bat" "%source_file%.wsas_temp"`) do set "link_type_backup=%%i"
+for /f "usebackq delims=" %%i in (`call "%~dp0utils\read_link_target.bat" "%source_file%.wsas_temp"`) do set "link_target_backup=%%i"
 
 echo Link type ^(current^): %link_type_current%
 echo Link target ^(current^): %link_target_current%
@@ -79,8 +79,8 @@ if "%~1" NEQ "" (goto :loop) else (goto:eof)
 @REM @retv[1]: skip
 @REM @retv[2]: abort
 :rename_tasks
-    set source_file=%~1
-    set source_filename=%~nx1
+    set "source_file=%~1"
+    set "source_filename=%~nx1"
     ren "%source_file%" "%source_filename%.wsas_temp2"
     if ERRORLEVEL 1 (
         echo Backup current file failed. Skip.

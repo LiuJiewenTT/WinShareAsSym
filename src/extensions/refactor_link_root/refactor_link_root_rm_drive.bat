@@ -22,12 +22,12 @@
 
 if "%~1"=="" goto:eof
 
-set kit_root=%~dp0..\..\
+set "kit_root=%~dp0..\..\"
 
 :loop
-set source_file=%~1
-set source_filename=%~nx1
-set source_dirname=%~dp1
+set "source_file=%~1"
+set "source_filename=%~nx1"
+set "source_dirname=%~dp1"
 echo Source file: %source_file% 
 echo Target directory: %source_dirname%
 set link_type=
@@ -36,20 +36,20 @@ if not exist "%source_file%" (
     echo Original file does not exist now. Skip.
     goto :main_continue
 ) 
-for /f "usebackq delims=" %%i in (`call "%~dp0utils\read_link_type.bat" "%source_file%"`) do set link_type=%%i
-for /f "usebackq delims=" %%i in (`call "%~dp0utils\read_link_target.bat" "%source_file%"`) do set link_target_original=%%i
+for /f "usebackq delims=" %%i in (`call "%~dp0utils\read_link_type.bat" "%source_file%"`) do set "link_type=%%i"
+for /f "usebackq delims=" %%i in (`call "%~dp0utils\read_link_target.bat" "%source_file%"`) do set "link_target_original=%%i"
 echo Link type: %link_type%
 echo Link target ^(original^): %link_target_original%
-set prefix=%link_target_original:~0,2%
-set rest=%link_target_original:~2%
-set drive_original=%prefix:~0,1%
+set "prefix=%link_target_original:~0,2%"
+set "rest=%link_target_original:~2%"
+set "drive_original=%prefix:~0,1%"
 set link_target_new=
 if "%prefix:~1,2%" NEQ ":" (
     echo The link target does not start with a drive letter and colon.
     goto :main_continue
 )
 echo Drive letter ^(original^): %drive_original% 
-set link_target_new=%rest%
+set "link_target_new=%rest%"
 if /I "%link_type%" EQU "SYMLINK" (
     echo Link is for a file.
     set mklink_option=
