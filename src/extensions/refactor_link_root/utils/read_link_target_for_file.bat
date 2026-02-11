@@ -45,8 +45,8 @@ goto :loop1
 :end
 if /I "%retv%" NEQ "" (
     set "retv=!retv:~1!"
+    echo !retv!
 )
-if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] retv=【!retv!】 )
 if not defined retv (
     exit /b 1
 )
