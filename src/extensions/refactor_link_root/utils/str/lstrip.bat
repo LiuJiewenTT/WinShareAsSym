@@ -1,4 +1,4 @@
-@setlocal
+@setlocal enabledelayedexpansion
 @echo off
 @REM This is a batch script to remove the first character of a string.
 @REM Usage: remove_first_char.bat [first_char] [string]
@@ -21,13 +21,13 @@ if /I "%para3%" EQU "" (
 
 set /a "max_cnt=%para2%"
 
-if /I "%flag_wasa_debug_mode%" EQU "true" (echo [DEBUG] max_cnt=【%max_cnt%】 )
+if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] max_cnt=【!max_cnt!】 )
 
 :loop
 
-if /I "%flag_wasa_debug_mode%" EQU "true" (echo [DEBUG] para3=【%para3%】 )
+if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] para3=【!para3!】 )
 
-if /I "%flag_wasa_debug_mode%" EQU "true" (echo [DEBUG] first_char=【%para3:~0,1%】 )
+if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] first_char=【!para3:~0,1!】 )
 
 if "%para3:~0,1%" EQU "%para1%" (
     set "para3=%para3:~1%"
@@ -36,10 +36,10 @@ if "%para3:~0,1%" EQU "%para1%" (
     goto :end
 )
 
-if /I "%flag_wasa_debug_mode%" EQU "true" (echo [DEBUG] cnt=【%cnt%】 )
+if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] cnt=【!cnt!】 )
 
 if /I "%max_cnt%" GTR "0" if /I "%cnt%" GEQ "%max_cnt%" (
-    if /I "%flag_wasa_debug_mode%" EQU "true" (echo [DEBUG] cnt=【%cnt%】 hits max_cnt=【%max_cnt%】 )
+    if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] cnt=【!cnt!】 hits max_cnt=【!max_cnt!】 )
     goto :end
 )
 
@@ -49,5 +49,5 @@ if /I "%para3%" NEQ "" (
 
 :end
 set "retv=%para3%" 
-if /I "%flag_wasa_debug_mode%" EQU "true" (echo [DEBUG] retv=【%retv%】 )
+if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] retv=【!retv!】 )
 @endlocal && set "retv=%retv%"

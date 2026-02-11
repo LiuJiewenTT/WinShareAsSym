@@ -1,41 +1,53 @@
+@setlocal enabledelayedexpansion
+@echo off
 set retv=
-set token_3=
 set line=
-set str_length=
-set offset=
 @for /f "usebackq eol= delims=" %%i in (`dir /A:-DL "%~1" ^| findstr /L /C:" %~nx1 "`) do @(
     set line=%%i
 )
-echo "line=%line%"
-@for /f "usebackq tokens=2,* delims=[]" %%i in (`echo "%line%"`) do @(
-    echo %%i
-    set retv=%%i
-    set token_3=%%j
-)
-@REM remove tailing " sign. 
-@ if defined token_3 (
-    set token_3=%token_3:~,-1%
-)
-@ if not defined token_3 (
-    goto:end
-)
-echo "token_3=%token_3%"
+if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] line=【!line!】 )
 
-set /a offset=0
-echo "%line%" | findstr /L /O /C:" %~nx1 "
-@for /f "usebackq tokens=1 delims=:" %%i in (`echo "%line%" ^| findstr /L /O /C:" %~nx1 "`) do @(
-    echo %%i
-    set /a offset=%%i-1
+call "%~dp0str\strip.bat" " " 0 "%line%"
+set "line=%retv%"
+if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] line=【!line!】 )
+
+set /a square_cnt=0
+set /a ptr=-1
+set flag_met_square_sign=false
+
+:loop1
+
+set "char=!line:~%ptr%,1!"
+if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] char=【!char!】 )
+
+if "%char%" EQU "" (
+    goto :end
+) 
+
+if "%char%" EQU "]" (
+    set /a square_cnt+=1
+    set flag_met_square_sign=true
+) else if "%char%" EQU "[" (
+    set /a square_cnt-=1
+) 
+
+if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] square_cnt=【!square_cnt!】 )
+
+if "%square_cnt%" EQU "0" if "%flag_met_square_sign%" EQU "true" (
+    set "retv=!line:~%ptr%,-1!"
+    goto :end
 )
-echo "offset=%offset%"
-@for /f "usebackq tokens=1 delims=:" %%i in (`echo "%~nx1%:" ^| findstr /L /O /C:":"`) do @(
-    set /a offset=%offset%+%%i-1
-)
-echo "offset=%offset%"
-set "retv=%line:~%offset%,-1%"
-echo %retv%
+
+set /a ptr-=1
+
+goto :loop1 
 
 :end
+if /I "%retv%" NEQ "" (
+    set "retv=!retv:~1!"
+)
+if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] retv=【!retv!】 )
 if not defined retv (
     exit /b 1
 )
+@endlocal & set "retv=%retv%"

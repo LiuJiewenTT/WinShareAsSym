@@ -6,9 +6,9 @@
 
 
 set retv=
-set para1=%~1
+set "para1=%~1"
 for /f "" %%i in ("%para1%") do (
-    set retv=%%i
+    set "retv=%%i"
     @REM not equals to blank and tab
     if /I "%%i" NEQ " " if /I "%%i" NEQ "	" (
         goto :break
@@ -18,7 +18,7 @@ for /f "" %%i in ("%para1%") do (
 if not defined retv (
     exit /b 0
 ) else (
-    if /I "%flag_wasa_debug_mode%" EQU "true" (echo [DEBUG]: not blank)
+    if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG]: not blank)
     exit /b 1
 )
 @endlocal
