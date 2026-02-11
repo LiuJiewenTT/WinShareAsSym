@@ -6,8 +6,10 @@ This is a toolkit to create symbolic links to shared folders/files on Windows. B
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" >
 <link rel="stylesheet" href="docs/res/css/main.css" >
+<link rel="stylesheet" href="../../../docs/res/css/main.css" >
 
 <script src="readme.js" ></script>
+<script src="../shared/readme.js" ></script>
 <div class="go-to-top" style="display: none;">
     <i class="fas fa-arrow-up"></i>
 </div>
@@ -27,6 +29,10 @@ This is a toolkit to create symbolic links to shared folders/files on Windows. B
    > 把你希望出现在这个目录里的文件或目录拖拽到脚本上，脚本会自动在这个目录里创建好链接，不会改变源文件或目录的位置。
 
 > 关于使用说明，可以参阅[wiki](docs/wiki-i18n/)。
+
+> [!WARNING]
+> 
+> 部分符号特殊，不保证当路径或文件名中包含这些符号时仍能正常运行。符号列表：`&[]`。
 
 ## Wiki
 

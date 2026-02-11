@@ -2,6 +2,17 @@
 
 This is a toolkit to create symbolic links to shared folders/files on Windows. By doing so, you can have a copy of the data everywhere available, without taking up more storage space.
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" >
+<link rel="stylesheet" href="docs/res/css/main.css" >
+<link rel="stylesheet" href="../../../docs/res/css/main.css" >
+
+<script src="readme.js" ></script>
+<script src="../shared/readme.js" ></script>
+<div class="go-to-top" style="display: none;">
+    <i class="fas fa-arrow-up"></i>
+</div>
+<div class="quick-navigate"></div>
+
 ## Setup
 
 It's still portable, the installation add the registries and the uninstallation removes the registries. **You don't have to do the installation step if you don't care about context menu entries.**
@@ -18,4 +29,14 @@ Currently, some new scripts are not fully multi-language capable. Hence, some mi
  > If you did setup, you can use the context menu to get a copy.
 2. Drag and drop the shared folder/file to the batch file, the script will automatically create the symbolic link.
  > You can also run the batch file from the command line with the shared folder/file as an argument, for example: `create_file_sym.bat "C:\Users\John\Documents\Shared Documents\myfile.txt"`
+
+> About the usage, you can refer to [wiki](docs/wiki-i18n/).
+
+> [!WARNING]
+> 
+> Some symbols are special, and it is not guaranteed that the script will work properln the path or file name contains these symbols. The list of sbols: `&[]`.
+
+## Wiki
+
+> Will update Chinese version first.
 
