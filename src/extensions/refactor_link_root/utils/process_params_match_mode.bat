@@ -1,6 +1,6 @@
 @REM @echo off
 set match_mode=
-set shift_cnt=0
+set /a shift_cnt=0
 :loop_start
 if /I "%~1" EQU "/ff" (
     @REM File first

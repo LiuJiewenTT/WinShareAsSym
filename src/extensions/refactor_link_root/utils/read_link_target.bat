@@ -3,7 +3,7 @@ call "%~dp0process_params_match_mode.bat" %* >nul
 @REM echo Match mode: %match_mode%
 @REM echo Shift cnt: %shift_cnt%
 :shifting_step
-if /I "%shift_cnt%" GTR "0" (
+if /I %shift_cnt% GTR 0 (
     shift /1
     set /a shift_cnt=shift_cnt-1
     @REM echo shift

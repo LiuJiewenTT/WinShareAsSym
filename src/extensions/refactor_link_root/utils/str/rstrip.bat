@@ -38,7 +38,7 @@ if "%para3:~-1%" EQU "%para1%" (
 
 if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] cnt=【!cnt!】 )
 
-if /I "%max_cnt%" GTR "0" if /I "%cnt%" GEQ "%max_cnt%" (
+if /I %max_cnt% GTR 0 if /I %cnt% GEQ %max_cnt% (
     if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] cnt=【!cnt!】 hits max_cnt=【!max_cnt!】 )
     goto :end
 )

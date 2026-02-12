@@ -1,6 +1,6 @@
 @setlocal enabledelayedexpansion
 @echo off
-@REM retv: (None)
+@REM retv: (integer) the length of the string
 @REM exit code: (integer) the length of the string
 @REM para1: (str) the string to be checked
 
@@ -18,6 +18,7 @@ if /I "%para1%" NEQ "" (
 )
 
 if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] cnt=【!cnt!】 )
+set retv=%cnt%
 
-exit /b %cnt%
-@endlocal
+@endlocal & set "retv=%retv%"
+exit /b %retv%

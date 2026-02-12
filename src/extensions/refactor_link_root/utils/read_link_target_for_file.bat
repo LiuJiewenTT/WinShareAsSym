@@ -6,10 +6,20 @@ set line=
     set "line=%%i"
 )
 if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] line=【!line!】 )
+if "%line%" EQU "" (
+    goto :end
+)
 
 call "%~dp0str\strip.bat" " " 0 "%line%"
 set "line=%retv%"
 if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] line=【!line!】 )
+if "%line%" EQU "" (
+    goto :end
+)
+
+call "%~dp0str\len.bat" "%line%"
+set /a "line_len=%retv%"
+if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] line_len=【!line_len!】 )
 
 set /a square_cnt=0
 set /a ptr=-1
@@ -35,16 +45,20 @@ if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] square_cnt=【!square_cn
 
 if "%square_cnt%" EQU "0" if "%flag_met_square_sign%" EQU "true" (
     set "retv=!line:~%ptr%,-1!"
+    set "retv=!retv:~1!"
     goto :end
 )
 
 set /a ptr-=1
 
+if /I %ptr% LSS -%line_len% (
+    goto :end
+)
+
 goto :loop1 
 
 :end
 if /I "%retv%" NEQ "" (
-    set "retv=!retv:~1!"
     echo !retv!
 )
 @REM if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] retv=【!retv!】 )
