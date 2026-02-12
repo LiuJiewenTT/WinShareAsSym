@@ -2,12 +2,27 @@
 @echo off
 set retv=
 set line=
-@for /f "usebackq eol= delims=" %%i in (`dir /A:-DL "%~1" ^| findstr /L /C:" %~nx1 "`) do @(
+
+set "para1=%~1"
+if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] para1=【!para1!】 1>&2)
+
+call :get_var_nx "%para1%"
+if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] para1^(~nx^)=【!retv!】 1>&2)
+
+@for /f "usebackq eol= delims=" %%i in (`dir /A:-DL "%para1%" ^| findstr /L /C:" %retv% "`) do @(
     set "line=%%i"
 )
 if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] line=【!line!】 1>&2)
 if "%line%" EQU "" (
     goto :end
+)
+
+for /f "tokens=2,3 delims=[]" %%i in ("!line!") do (
+    if /I "%%j" EQU "" (
+        if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] Use easier method to read. 1>&2)
+        set "retv=%%i"
+        goto :end
+    )
 )
 
 call "%~dp0str\strip.bat" " " 0 "%line%"
