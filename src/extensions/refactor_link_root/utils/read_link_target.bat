@@ -26,3 +26,4 @@ call "%~dp0read_link_target_for_%first_suffix%.bat" "%~1"
 if not defined retv (
     call "%~dp0read_link_target_for_%second_suffix%.bat" "%~1"
 )
+@REM reserve last errorlevel

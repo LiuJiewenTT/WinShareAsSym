@@ -78,7 +78,7 @@ if "%~1" NEQ "" (goto :loop) else (goto:end)
 
 :end
 @endlocal
-goto :eof
+@exit /b 0
 
 
 @REM @retv[0]: normal

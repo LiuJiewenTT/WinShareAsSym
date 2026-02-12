@@ -66,3 +66,4 @@ if not defined retv (
     exit /b 1
 )
 @endlocal & set "retv=%retv%"
+@exit /b 0

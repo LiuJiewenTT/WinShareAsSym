@@ -6,3 +6,4 @@ set retv=
 if not defined retv (
     exit /b 1
 )
+@exit /b 0 

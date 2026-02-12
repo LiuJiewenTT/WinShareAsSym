@@ -51,3 +51,4 @@ if /I "%para3%" NEQ "" (
 set "retv=%para3%" 
 if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] retv=【!retv!】 )
 @endlocal && set "retv=%retv%"
+@exit /b 0
