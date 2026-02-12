@@ -1,5 +1,6 @@
 @setlocal enabledelayedexpansion
 @echo off
+@REM Version: 1.0.0
 @REM retv: (integer) the length of the string
 @REM exit code: (integer) the length of the string
 @REM para1: (str) the string to be checked

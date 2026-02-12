@@ -1,7 +1,8 @@
 @setlocal
 @echo off
+@REM Version: 1.0.0
 @REM retv: (None)
-@REM exit code: 0 if the string is blank, 1 otherwise.
+@REM exit code: (integer) 0 if the string is blank, 1 otherwise.
 @REM para1: (str) the string to be checked
 
 

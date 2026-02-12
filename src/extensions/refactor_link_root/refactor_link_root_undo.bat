@@ -14,7 +14,7 @@
 @echo.
 @echo Email: ^<liuljwtt@163.com^>
 @echo.
-@echo Version: 1.0.1
+@echo Version: 1.0.2
 @echo.
 @echo License: LGPLv3 License ^(Copyright ^(c^) 2026 LiuJiewenTT^)
 @echo.

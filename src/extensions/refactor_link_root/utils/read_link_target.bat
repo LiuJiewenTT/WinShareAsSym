@@ -1,4 +1,5 @@
 @echo off
+@REM Version: 1.0.0
 call "%~dp0process_params_match_mode.bat" %* >nul
 @REM echo Match mode: %match_mode%
 @REM echo Shift cnt: %shift_cnt%

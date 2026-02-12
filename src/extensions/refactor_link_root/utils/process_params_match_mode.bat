@@ -1,4 +1,5 @@
 @REM @echo off
+@REM Version: 1.0.0
 set match_mode=
 set /a shift_cnt=0
 :loop_start

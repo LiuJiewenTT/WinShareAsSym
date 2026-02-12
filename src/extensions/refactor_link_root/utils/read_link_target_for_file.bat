@@ -1,5 +1,6 @@
 @setlocal enabledelayedexpansion
 @echo off
+@REM Version: 1.0.0
 set retv=
 set line=
 
