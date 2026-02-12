@@ -82,3 +82,7 @@ if not defined retv (
 )
 @endlocal & set "retv=%retv%"
 @exit /b 0
+
+:get_var_nx
+    set "retv=%~nx1"
+@goto :eof
