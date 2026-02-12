@@ -21,13 +21,13 @@ if /I "%para3%" EQU "" (
 
 set /a "max_cnt=%para2%"
 
-if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] max_cnt=【!max_cnt!】 )
+if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] max_cnt=【!max_cnt!】 1>&2)
 
 :loop
 
-if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] para3=【!para3!】 )
+if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] para3=【!para3!】 1>&2)
 
-if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] first_char=【!para3:~0,1!】 )
+if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] first_char=【!para3:~0,1!】 1>&2)
 
 if "%para3:~0,1%" EQU "%para1%" (
     set "para3=%para3:~1%"
@@ -36,10 +36,10 @@ if "%para3:~0,1%" EQU "%para1%" (
     goto :end
 )
 
-if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] cnt=【!cnt!】 )
+if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] cnt=【!cnt!】 1>&2)
 
 if /I %max_cnt% GTR 0 if /I %cnt% GEQ %max_cnt% (
-    if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] cnt=【!cnt!】 hits max_cnt=【!max_cnt!】 )
+    if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] cnt=【!cnt!】 hits max_cnt=【!max_cnt!】 1>&2)
     goto :end
 )
 
@@ -49,6 +49,6 @@ if /I "%para3%" NEQ "" (
 
 :end
 set "retv=%para3%" 
-if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] retv=【!retv!】 )
+if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] retv=【!retv!】 1>&2)
 @endlocal && set "retv=%retv%"
 @exit /b 0

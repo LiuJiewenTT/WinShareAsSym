@@ -18,7 +18,7 @@ for /f "" %%i in ("%para1%") do (
 if not defined retv (
     exit /b 0
 ) else (
-    if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG]: not blank)
+    if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG]: not blank 1>&2)
     exit /b 1
 )
 @endlocal

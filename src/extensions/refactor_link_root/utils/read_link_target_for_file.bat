@@ -5,21 +5,21 @@ set line=
 @for /f "usebackq eol= delims=" %%i in (`dir /A:-DL "%~1" ^| findstr /L /C:" %~nx1 "`) do @(
     set "line=%%i"
 )
-if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] line=【!line!】 )
+if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] line=【!line!】 1>&2)
 if "%line%" EQU "" (
     goto :end
 )
 
 call "%~dp0str\strip.bat" " " 0 "%line%"
 set "line=%retv%"
-if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] line=【!line!】 )
+if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] line=【!line!】 1>&2)
 if "%line%" EQU "" (
     goto :end
 )
 
 call "%~dp0str\len.bat" "%line%"
 set /a "line_len=%retv%"
-if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] line_len=【!line_len!】 )
+if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] line_len=【!line_len!】 1>&2)
 
 set /a square_cnt=0
 set /a ptr=-1
@@ -28,7 +28,7 @@ set flag_met_square_sign=false
 :loop1
 
 set "char=!line:~%ptr%,1!"
-if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] char=【!char!】 )
+if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] char=【!char!】 1>&2)
 
 if "%char%" EQU "" (
     goto :end
@@ -41,7 +41,7 @@ if "%char%" EQU "]" (
     set /a square_cnt-=1
 ) 
 
-if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] square_cnt=【!square_cnt!】 )
+if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] square_cnt=【!square_cnt!】 1>&2)
 
 if "%square_cnt%" EQU "0" if "%flag_met_square_sign%" EQU "true" (
     set "retv=!line:~%ptr%,-1!"
@@ -61,7 +61,7 @@ goto :loop1
 if /I "%retv%" NEQ "" (
     echo !retv!
 )
-@REM if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] retv=【!retv!】 )
+@REM if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] retv=【!retv!】 1>&2)
 if not defined retv (
     exit /b 1
 )

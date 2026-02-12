@@ -17,7 +17,7 @@ if /I "%para1%" NEQ "" (
     goto :loop 
 )
 
-if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] cnt=【!cnt!】 )
+if /I "%flag_wsas_debug_mode%" EQU "true" (echo [DEBUG] cnt=【!cnt!】 1>&2)
 set retv=%cnt%
 
 @endlocal & set "retv=%retv%"
