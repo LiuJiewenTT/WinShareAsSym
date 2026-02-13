@@ -1,0 +1,3 @@
+[submodule "docs/wiki-i18n/zh-CN"]
+	path = docs/wiki-i18n/zh-CN
+	url = https://github.com/LiuJiewenTT/WinShareAsSym.wiki.git
