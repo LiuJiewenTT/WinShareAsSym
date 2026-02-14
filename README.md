@@ -1,6 +1,13 @@
 # WinShareAsSym
 
-Slogan: 即刻共享我的文件，告别重复存储！
+Slogan: 我的硬盘我做主，拒绝重复占用！
+
+<div style="align-items: center; justify-content: center; display: flex; margin: 10px; gap: 10px">
+   <img alt="GitHub Downloads (all assets, all releases)" src="https://img.shields.io/github/downloads/LiuJiewenTT/WinShareAsSym/total">
+   <img alt="GitHub Release" src="https://img.shields.io/github/v/release/LiuJiewenTT/WinShareAsSym">
+   <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/LiuJiewenTT/WinShareAsSym">
+   <img alt="GitHub License" src="https://img.shields.io/github/license/LiuJiewenTT/WinShareAsSym">
+</div>
 
 这是一个用于**快捷共享文件副本**的工具包。通过创建 *符号连接*、*硬链接* 或 *软联结*，实现一份数据处处共用，不再占用多倍存储空间。
 

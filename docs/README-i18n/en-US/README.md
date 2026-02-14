@@ -1,5 +1,12 @@
 # WinShareAsSym
 
+<div style="align-items: center; justify-content: center; display: flex; margin: 10px; gap: 10px">
+   <img alt="GitHub Downloads (all assets, all releases)" src="https://img.shields.io/github/downloads/LiuJiewenTT/WinShareAsSym/total">
+   <img alt="GitHub Release" src="https://img.shields.io/github/v/release/LiuJiewenTT/WinShareAsSym">
+   <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/LiuJiewenTT/WinShareAsSym">
+   <img alt="GitHub License" src="https://img.shields.io/github/license/LiuJiewenTT/WinShareAsSym">
+</div>
+
 This is a toolkit to create symbolic links to shared folders/files on Windows. By doing so, you can have a copy of the data everywhere available, without taking up more storage space.
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" >
