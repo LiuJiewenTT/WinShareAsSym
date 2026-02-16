@@ -30,6 +30,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Checkout needed submodules
         run: |
+          set -e  # 确保遇到非零退出码就 fail
           git submodule update --init --depth 1 -- ./docs/wiki-i18n/zh-CN
       - name: Setup Pages
         uses: actions/configure-pages@v5
