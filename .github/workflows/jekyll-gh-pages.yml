@@ -38,11 +38,16 @@ jobs:
         run: |
           set -e 
           pwd
-          mkdir -p _data
-          ls ./docs/wiki-i18n/zh-CN/*.md \
-            | sed 's/\.md$//' \
-            | sed 's/^/- /' \
-            > ./_data/wiki-pages.yml
+          mkdir -p ./_data
+          (
+            cd ./docs/wiki-i18n/zh-CN/
+            ls *.md \
+              | sed 's/\.md$//' \
+              | sed 's/^/- /' \
+              > ../../../_data/wiki-pages.yml
+          )
+          # cd ../../../
+          pwd
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
