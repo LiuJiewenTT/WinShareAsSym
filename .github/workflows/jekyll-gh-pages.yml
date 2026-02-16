@@ -37,7 +37,8 @@ jobs:
       - name: Capture wiki structure
         run: |
           set -e 
-          ls ./docs/wiki-i18n/zh-CN/*.md | sed 's/\.md$//' | sed 's/^/- /' > _data/wiki-pages.yml
+          mkdir ./_data
+          ls ./docs/wiki-i18n/zh-CN/*.md | sed 's/\.md$//' | sed 's/^/- /' > ./_data/wiki-pages.yml
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
