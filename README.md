@@ -77,7 +77,7 @@ MC跨版本共享资源-便携支持展示：
 
 [wiki](docs/wiki-i18n/)
 
-[wiki gh-wiki](wiki)
+[wiki gh-wiki](./wiki/)
 
 ## 开发
 
