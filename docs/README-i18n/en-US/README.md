@@ -1,10 +1,10 @@
 # WinShareAsSym
 
 <div style="align-items: center; justify-content: center; display: flex; margin: 10px; gap: 10px">
-   <img alt="GitHub Downloads (all assets, all releases)" src="https://img.shields.io/github/downloads/LiuJiewenTT/WinShareAsSym/total">
-   <img alt="GitHub Release" src="https://img.shields.io/github/v/release/LiuJiewenTT/WinShareAsSym">
-   <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/LiuJiewenTT/WinShareAsSym">
-   <img alt="GitHub License" src="https://img.shields.io/github/license/LiuJiewenTT/WinShareAsSym">
+    <img alt="GitHub Downloads (all assets, all releases)" src="https://img.shields.io/github/downloads/LiuJiewenTT/WinShareAsSym/total">
+    <img alt="GitHub Release" src="https://img.shields.io/github/v/release/LiuJiewenTT/WinShareAsSym">
+    <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/LiuJiewenTT/WinShareAsSym">
+    <img alt="GitHub License" src="https://img.shields.io/github/license/LiuJiewenTT/WinShareAsSym">
 </div>
 
 This is a toolkit to create symbolic links to shared folders/files on Windows. By doing so, you can have a copy of the data everywhere available, without taking up more storage space.
@@ -12,13 +12,31 @@ This is a toolkit to create symbolic links to shared folders/files on Windows. B
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" >
 <link rel="stylesheet" href="docs/res/css/main.css" >
 <link rel="stylesheet" href="../../../docs/res/css/main.css" >
+<link rel="stylesheet" href="docs/res/css/github-markdown-alert.css">
+<link rel="stylesheet" href="../../res/css/github-markdown-alert.css">
 
 <script src="readme.js" ></script>
 <script src="../shared/readme.js" ></script>
 <div class="go-to-top" style="display: none;">
     <i class="fas fa-arrow-up"></i>
 </div>
-<div class="quick-navigate"></div>
+
+> [!IMPORTANT]
+> 
+> 禁止用于AI训练。
+> NO AI TRAINING. 
+
+<div class="quick-navigate">
+    <span class="quick-navigate-title">Quick jump：<br></span>
+    <div class="quick-navigate-item-group">
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- <span class="quick-navigate-item"><a href="#概览图">概览图</a></span> -->
+        <span class="quick-navigate-item"><a href="#Setup">Setup</a></span>
+        <span class="quick-navigate-item"><a href="#Usage">Usage</a></span>
+        <span class="quick-navigate-item"><a href="#wiki">Wiki</a></span>
+        <!-- <span class="quick-navigate-item"><a href="#开发">开发</a></span> -->
+    </div>
+</div>
 
 ## Setup
 
@@ -47,3 +65,6 @@ Currently, some new scripts are not fully multi-language capable. Hence, some mi
 
 > Will update Chinese version first.
 
+[wiki](docs/wiki-i18n/)
+
+[wiki gh-wiki](https://github.com/LiuJiewenTT/WinShareAsSym/wiki)

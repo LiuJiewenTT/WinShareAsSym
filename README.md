@@ -3,10 +3,10 @@
 Slogan: 我的硬盘我做主，拒绝重复占用！
 
 <div style="align-items: center; justify-content: center; display: flex; margin: 10px; gap: 10px">
-   <img alt="GitHub Downloads (all assets, all releases)" src="https://img.shields.io/github/downloads/LiuJiewenTT/WinShareAsSym/total">
-   <img alt="GitHub Release" src="https://img.shields.io/github/v/release/LiuJiewenTT/WinShareAsSym">
-   <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/LiuJiewenTT/WinShareAsSym">
-   <img alt="GitHub License" src="https://img.shields.io/github/license/LiuJiewenTT/WinShareAsSym">
+    <img alt="GitHub Downloads (all assets, all releases)" src="https://img.shields.io/github/downloads/LiuJiewenTT/WinShareAsSym/total">
+    <img alt="GitHub Release" src="https://img.shields.io/github/v/release/LiuJiewenTT/WinShareAsSym">
+    <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/LiuJiewenTT/WinShareAsSym">
+    <img alt="GitHub License" src="https://img.shields.io/github/license/LiuJiewenTT/WinShareAsSym">
 </div>
 
 这是一个用于**快捷共享文件副本**的工具包。通过创建 *符号连接*、*硬链接* 或 *软联结*，实现一份数据处处共用，不再占用多倍存储空间。
@@ -16,6 +16,8 @@ This is a toolkit to create symbolic links to shared folders/files on Windows. B
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" >
 <link rel="stylesheet" href="docs/res/css/main.css" >
 <link rel="stylesheet" href="../../../docs/res/css/main.css" >
+<link rel="stylesheet" href="docs/res/css/github-markdown-alert.css">
+<link rel="stylesheet" href="../../res/css/github-markdown-alert.css">
 
 <script src="readme.js" ></script>
 <script src="../shared/readme.js" ></script>
@@ -29,7 +31,7 @@ This is a toolkit to create symbolic links to shared folders/files on Windows. B
 > NO AI TRAINING. 
 
 <div class="quick-navigate">
-   <span class="quick-navigate-title">快速跳转：<br></span>
+    <span class="quick-navigate-title">快速跳转：<br></span>
     <div class="quick-navigate-item-group">
         &nbsp;&nbsp;&nbsp;&nbsp;
         <span class="quick-navigate-item"><a href="#概览图">概览图</a></span>
