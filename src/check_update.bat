@@ -15,6 +15,7 @@ for /f "tokens=1,2 delims=:" %%a in ('curl -sL %api_url% ^| findstr /i "tag_name
 
 if "%latest_version%" EQU "" (
     echo Failed to fetch remote latest version.
+    pause
     exit /b 1
 )
 
@@ -24,6 +25,7 @@ set latest_version=%latest_version:,=%
 
 if "%latest_version%" EQU "" (
     echo Failed to fetch remote latest version.
+    pause
     exit /b 1
 )
 
@@ -33,6 +35,7 @@ for /f "tokens=1 delims=-" %%a in ("%latest_version%") do set latest_version=%%a
 
 if "%latest_version%" EQU "" (
     echo Failed to check for updates.
+    pause
     exit /b 1
 )
 
@@ -109,7 +112,7 @@ if /I %current_major% LSS %latest_major% (
     )
 )
 
-
+pause
 
 endlocal
 goto :eof

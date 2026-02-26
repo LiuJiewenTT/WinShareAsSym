@@ -86,6 +86,7 @@ temp
 robocopy /S "%project_root%src" "%product_build_cache_dir:~0,-1%" * /XD %src_exclude_file_list_content% /XF %src_exclude_dir_list_content% 
 
 xcopy /Y "%project_root%LICENSE" "%product_build_cache_dir%"
+xcopy /Y "%project_root%NO_AI_TRAINING" "%product_build_cache_dir%"
 xcopy /Y "%project_root%README.md" "%product_build_cache_dir%"
 
 if exist "%build_dest_dir%%project_name%-%product_version%.zip" (
