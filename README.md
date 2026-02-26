@@ -22,6 +22,12 @@ This is a toolkit to create symbolic links to shared folders/files on Windows. B
 <div class="go-to-top" style="display: none;">
     <i class="fas fa-arrow-up"></i>
 </div>
+
+> [!IMPORTANT]
+> 
+> 禁止用于AI训练。
+> NO AI TRAINING. 
+
 <div class="quick-navigate">
    <span class="quick-navigate-title">快速跳转：<br></span>
     <div class="quick-navigate-item-group">
